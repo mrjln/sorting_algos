@@ -2,5 +2,8 @@
   "name": "SortingAlgorithms",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "csvtojson": "^1.1.9"
+  }
 }
