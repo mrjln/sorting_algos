@@ -1,7 +1,7 @@
 const csv = require('csvtojson')
 
 // Require algorithm implementation
-const sort = require('./algorithms/insertion')
+const sort = require('./algorithms/bubble')
 
 // Path to data file and column to sort on
 const CSV_FILE='./datasets/ted_main.csv'
