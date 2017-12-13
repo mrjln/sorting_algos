@@ -4,6 +4,10 @@ In this class, we will write various sorting algorithms from scratch. You will
 see, hopefully, that implementing them is not necessarily hard, and that there
 are very different approaches to sorting.
 
+## Dataset
+
+As a dataset we will use meta data on [TED talks](https://www.kaggle.com/rounakbanik/ted-talks?)
+
 ## In-Place Algorithms
 
 When sorting data, we often need temporary additional data structures. Important
