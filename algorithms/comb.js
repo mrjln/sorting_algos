@@ -4,30 +4,42 @@ const swap = (list, a, b) => {
   list[a] = temp
 }
 
-const gaps = [1750, 701, 301, 132, 57, 23, 10, 4, 1]
-
 module.exports = (data, COLUMN) => {
    const sortStart = new Date()
    let sortCalls = 0
    let swapped = true
+   let sorted = false
+   let sort_once_more = false
 
    const list = data.map(x => parseInt(x[COLUMN]))
+   const shrink = 1.3
+   let j = 1
 
+   let gap = Math.floor(list.length / Math.pow(shrink,j))
+
+  while (gap > 1){
+    if (sort_once_more){ sorted = true}
+    gap = Math.floor(list.length / Math.pow(shrink,j++))
+    console.log(gap)
    while (swapped){
      swapped = false
+        for (let i = 0; i < list.length -1; i++) {
+         if (list[i] > list[i+gap]){
+           swap(list, i, i+gap)
+           swapped = true
+         }
+        sortCalls++
+      }
+      if (gap = 1){ sort_once_more = true}
 
-     for (let gap_i = 0; gap_i < gaps.length-1; gap_i++) {
-       let gap = gaps[gap_i]
+    }
+  }
 
-         for (let i = 0; i < list.length -1; i++) {
-           if (list[i] > list[i + gap]){
-             swap(list, i, i+gap)
-             swapped = true
-           }
-          sortCalls++
-       }
-     }
-   }
+
+
+
+
+
 
    const sortDuration = new Date() - sortStart
    const sortCallsPerRow = sortCalls / data.length
@@ -38,5 +50,6 @@ module.exports = (data, COLUMN) => {
 
    console.log(`Took ${sortCalls} calls, or ${sortCallsPerRow} calls per row (${sortDuration}ms)`)
 
+   console.log(list)
    return list
  }
