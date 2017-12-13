@@ -1,6 +1,8 @@
  module.exports = (data, COLUMN) => {
     const sortStart = new Date()
 
+
+
     // Take only the data we need to sort
     let tail = data
     let head = [tail.shift()]
